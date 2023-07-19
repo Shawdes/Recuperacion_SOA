@@ -1,0 +1,63 @@
+﻿@model Domain.Empleado
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<h2>Create Empleado</h2>
+
+@using (Html.BeginForm("Create", "Employes", FormMethod.Post))
+{
+
+    <div class="form-group">
+        <label asp-for="@Model.Nombre">Nombre:</label>
+        <input asp-for="@Model.Nombre" name="Nombre" class="form-control" />
+        <span asp-validation-for="@Model.Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Apellidos">Apellidos:</label>
+        <input asp-for="@Model.Apellidos" name="Apellidos" class="form-control" />
+        <span asp-validation-for="@Model.Apellidos" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.CURP">CURP:</label>
+        <input asp-for="@Model.CURP" name="CURP" class="form-control" />
+        <span asp-validation-for="@Model.CURP" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Fecha_Nacimiento">Fecha de Nacimiento:</label>
+        <input asp-for="@Model.Fecha_Nacimiento" name="Fecha_Nacimiento" class="form-control" type="date" />
+        <span asp-validation-for="@Model.Fecha_Nacimiento" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Email">Email:</label>
+        <input asp-for="@Model.Email" name="Email" class="form-control" />
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Numero_Empleado">Número de Empleado:</label>
+        <input asp-for="@Model.Numero_Empleado" name="Numero_Empleado" class="form-control" />
+        <span asp-validation-for="@Model.Numero_Empleado" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Fecha_Ingreso">Fecha de Ingreso:</label>
+        <input asp-for="@Model.Fecha_Ingreso" name="Fecha_Ingreso" class="form-control" type="date" />
+        <span asp-validation-for="@Model.Fecha_Ingreso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Estatus">Estado:</label>
+        <input asp-for="@Model.Estatus" name="Estatus" class="form-check-input" value="true" />
+        <span asp-validation-for="@Model.Estatus" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+
+}

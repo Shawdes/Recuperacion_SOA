@@ -1,0 +1,63 @@
+﻿@model Domain.Empleado
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<h2>Create Empleado</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label asp-for="Nombre">Nombre:</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Apellidos">Apellidos:</label>
+        <input asp-for="Apellidos" class="form-control" />
+        <span asp-validation-for="Apellidos" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CURP">CURP:</label>
+        <input asp-for="CURP" class="form-control" />
+        <span asp-validation-for="CURP" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha_Nacimiento">Fecha de Nacimiento:</label>
+        <input asp-for="Fecha_Nacimiento" class="form-control" type="date" />
+        <span asp-validation-for="Fecha_Nacimiento" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Numero_Empleado">Número de Empleado:</label>
+        <input asp-for="Numero_Empleado" class="form-control" />
+        <span asp-validation-for="Numero_Empleado" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha_Ingreso">Fecha de Ingreso:</label>
+        <input asp-for="Fecha_Ingreso" class="form-control" type="date" />
+        <span asp-validation-for="Fecha_Ingreso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Estatus">Estado:</label>
+        <input asp-for="@Model.Estatus" name="Estatus" class="form-check-input" value="true" />
+        <span asp-validation-for="@Model.Estatus" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+
+
+}

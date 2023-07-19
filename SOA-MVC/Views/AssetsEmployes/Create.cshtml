@@ -1,0 +1,63 @@
+﻿@model Domain.Activo_Empleado
+
+@{
+    ViewData["Title"] = "Create Activo_Empleado";
+    var errorMessage = ViewData.ModelState[""]?.Errors.FirstOrDefault()?.ErrorMessage;
+
+}
+
+
+<h2>Create Activo_Empleado</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Id_Empleado">Empleado:</label>
+        <select asp-for="Id_Empleado" class="form-control">
+            <option value="">-- Select Empleado --</option>
+            @foreach (var empleado in ViewBag.Empleados)
+            {
+                <option value="@empleado.Id">@empleado.Nombre</option>
+            }
+        </select>
+        <span asp-validation-for="Id_Empleado" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Id_Activo">Activo:</label>
+        <select asp-for="Id_Activo" class="form-control">
+            <option value="">-- Select Activo --</option>
+            @foreach (var activo in ViewBag.Activos)
+            {
+                <option value="@activo.Id">@activo.Nombre</option>
+            }
+        </select>
+        <span asp-validation-for="Id_Activo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha_Asignacion">Fecha de Asignación:</label>
+        <input asp-for="Fecha_Asignacion" class="form-control" type="date" />
+        <span asp-validation-for="Fecha_Asignacion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha_Liberacion">Fecha de Liberación:</label>
+        <input asp-for="Fecha_Liberacion" class="form-control" type="date" />
+        <span asp-validation-for="Fecha_Liberacion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha_Entrega">Fecha de Entrega:</label>
+        <input asp-for="Fecha_Entrega" class="form-control" type="date" />
+        <span asp-validation-for="Fecha_Entrega" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+}

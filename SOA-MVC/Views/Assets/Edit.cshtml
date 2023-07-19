@@ -1,0 +1,32 @@
+﻿@model Domain.Activo
+
+@{
+    ViewData["Title"] = "Edit Assets";
+}
+
+<h2>Create Assets</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Nombre">Nombre:</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Descripcion">Descripcion:</label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Estatus">Estado:</label>
+        <input asp-for="@Model.Estatus" name="Estatus" class="form-check-input" value="true" />
+        <span asp-validation-for="@Model.Estatus" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}

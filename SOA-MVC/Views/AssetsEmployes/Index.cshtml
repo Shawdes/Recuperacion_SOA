@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Domain.Activo_Empleado>
+@{
+    ViewData["Title"] = "Activos-Empeados";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                <a href="@Url.Action("Create", "AssetsEmployes")" class="btn btn-success">
+                    <i class="fas fa-plus"></i> Agergar nuevo activo
+                </a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Id_Empleado</th>
+                    <th>Id_Activo</th>
+                    <th>Fecha_Asignacion</th>
+                    <th>Fecha_Liberacion</th>
+                    <th>Fecha_Entrega</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Id_Empleado</td>
+                        <td>@item.Id_Activo</td>
+                        <td>@item.Fecha_Asignacion.ToShortDateString()</td>
+                        <td>@item.Fecha_Liberacion.ToShortDateString()</td>
+                        <td>@item.Fecha_Entrega.ToShortDateString()</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Assets", new { id = item.Id })" class="btn btn-primary">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action="@Url.Action("Delete", "Assets", new { id = item.Id })" method="post">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

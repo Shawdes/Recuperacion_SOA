@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Domain.Activo>
+@{
+    ViewData["Title"] = "Activos";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                <a href="@Url.Action("Create", "Assets")" class="btn btn-success">
+                    <i class="fas fa-plus"></i> Agergar nuevo activo
+                </a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Estado</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Descripcion</td>
+                        <td>@(item.Estatus ? "Ocupado" : "Desocupado")</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Assets", new { id = item.Id })" class="btn btn-primary">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action="@Url.Action("Delete", "Assets", new { id = item.Id })" method="post">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

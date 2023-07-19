@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Domain",
+    "\\Repository",
+    "\\Repository\\DBContext",
+    "\\Service",
+    "\\Service\\IService",
+    "\\Service\\Service",
+    "\\SOA-MVC",
+    "\\SOA-MVC\\Controllers"
+  ],
+  "SelectedNode": "\\Repository\\DBContext\\ApplicationDBContext.cs",
+  "PreviewInSolutionExplorer": false
+}

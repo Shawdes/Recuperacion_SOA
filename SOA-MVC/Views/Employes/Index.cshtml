@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Domain.Empleado>
+@{
+    ViewData["Title"] = "Empleados";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                <a href="@Url.Action("Create", "Employes")" class="btn btn-success">
+                    <i class="fas fa-plus"></i> Add New Person
+                </a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>CURP</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Email</th>
+                    <th>Número de Empleado</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Estatus</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Apellidos</td>
+                        <td>@item.CURP</td>
+                        <td>@item.Fecha_Nacimiento.ToShortDateString()</td>
+                        <td>@item.Email</td>
+                        <td>@item.Numero_Empleado</td>
+                        <td>@item.Fecha_Ingreso.ToShortDateString()</td>
+                        <td>@(item.Estatus ? "Active" : "Inactive")</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Employes", new { id = item.Id })" class="btn btn-primary">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action="@Url.Action("Delete", "Employes", new { id = item.Id })" method="post">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
